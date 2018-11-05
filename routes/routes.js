@@ -1,53 +1,76 @@
-const router=require("express").Router();
-const mongoose=require("mongoose")
-const bodyParser=require("body-parser")
-const morgan=require("morgan")
-const Post=mongoose.model("Post")
-const Author=mongoose.model("Author")
+const router = require("express").Router();
+const mongoose = require("mongoose");
 
-router.get("/",async(req,res)=>{
-        const posts= await Post.find({})
-        res.send(posts) ;
+const Post = mongoose.model("Post");
+const Comment = mongoose.model("Comment");
 
-});
-router.post("/", async(req,res)=>{
-    const post =new Post()
-    post.title=req.body.title;
-    post.content=req.body.content;
-   await post.save(post);
-   res.send(post);
-  
-});
-router.get("/:postId",async(req,res)=>{
-        const post =await Post.find({
-            _id:req.params.postId
-        })
-        res.send(post)
+router.get("/", async (req, res) => {
+  const posts = await Post.find({});
+  res.send(posts);
 });
 
-router.put("/:postId",async(req,res)=>{
-        const post =await Post.findByIdAndUpdate({
-            _id:req.params.postId
-        },req.body,{
-            new:true,
-            runValidators:true
-        });
-        res.send(post)
+router.get("/:postId", async (req, res) => {
+  const post = await Post.findOne({ _id: req.params.postId });
+  res.send(post);
 });
 
-router.delete("/:postId",async(req,res)=>{
-        const post =await Post.findByIdAndRemove({
-            _id:req.params.postId
-        });
-        res.send(post)       
+router.put("/:postId", async (req, res) => {
+  const post = await Post.findByIdAndUpdate(
+    {
+      _id: req.params.postId
+    },
+    req.body,
+    {
+      new: true,
+      runValidators: true
+    }
+  );
+
+  res.send(post);
 });
 
+router.delete("/:postId", async (req, res) => {
+  const post = await Post.findByIdAndRemove({
+    _id: req.params.postId
+  });
+  res.send(post);
+});
 
-router.get("/author",async(req,res)=>{
-        const posts= await Author.find({})
-        res.send(posts) 
+router.post("/", async (req, res) => {
+  const post = new Post();
+  post.title = req.body.title;
+  post.content = req.body.content;
+  await post.save();
+  res.send(post);
+});
 
-})
+// /Comments
 
+// Create a Comment
+router.post("/:postId/comment", async (req, res) => {
+  //Find a POst
+  const post = await Post.findOne({ _id: req.params.postId });
 
-module.exports=router
+  //Create a Comment
+  const comment = new Comment();
+  comment.content = req.body.content;
+  comment.post = post._id;
+  await comment.save();
+
+  // Associate Post with comment
+  post.comments.push(comment._id);
+  await post.save();
+
+  res.send(comment);
+});
+
+//Read a Comment
+
+router.get("/:postId/comment", async (req, res) => {
+  const post = await Post.findOne({ _id: req.params.postId }).populate(
+    "comments"
+  );
+  res.send(post);
+});
+
+module.exports = router;
