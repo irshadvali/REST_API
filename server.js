@@ -11,7 +11,7 @@ const morgan=require("morgan")
 require("./mongo")
 //Models
 require("./model/Post")
-require("./model/author")
+require("./model/Comment")
 app.use(bodyParser.json())
 .use(morgan())
 //app.use((req,res,next)=>{
