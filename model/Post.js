@@ -4,12 +4,14 @@ const Schema=mongoose.Schema
 const post_schema = new Schema({
     title: {
         type: String,
-        required: true
+        required: "Title is required."
     },
     content: {
         type: String,
-        required: true
+        required:  "Content is required."
     }
+},{
+    timestamps:true
 })
 
 
