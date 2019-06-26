@@ -12,6 +12,8 @@ require("./mongo")
 //Models
 require("./model/Post")
 require("./model/Comment")
+require("./model/book")
+require("./model/Users")
 app.use(bodyParser.json())
 .use(morgan())
 //app.use((req,res,next)=>{
@@ -19,7 +21,8 @@ app.use(bodyParser.json())
 // })
 
 //Routes
-app.use("/posts",require("./routes/routes"));
+app.use("/irshad",require("./routes/routes"));
+
 /*
 Not found Route
 */

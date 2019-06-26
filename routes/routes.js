@@ -3,13 +3,15 @@ const mongoose = require("mongoose");
 
 const Post = mongoose.model("Post");
 const Comment = mongoose.model("Comment");
+const Book=mongoose.model("Book");
+const Users=mongoose.model("Users")
 
-router.get("/", async (req, res) => {
+router.get("/posts", async (req, res) => {
   const posts = await Post.find({});
   res.send(posts);
 });
 
-router.get("/:postId", async (req, res) => {
+router.get("/posts/:postId", async (req, res) => {
   const post = await Post.findOne({ _id: req.params.postId });
   res.send(post);
 });
@@ -89,5 +91,22 @@ router.get("/:postId/comment", async (req, res) => {
     await Comment.findByIdAndRemove(req.params.commentId);
     res.send({ message: "Comment Successfully Deleted" });
   });
+  router.get("/book", async (req, res) => {
+    const book = await Book.find({})
+    res.send(book);
+  });
+  router.get("/comments", async (req, res) => {
+    const comments = await Comment.find({})
+    res.send(comments);
+  });
 
+  router.post("/user", async (req, res) => {
+    const user = new Users();
+    user.name = req.body.name;
+    user.mobileNumber = req.body.mobileNumber;
+    user.email = req.body.email;
+    user.adhaar = req.body.adhaar;
+    await user.save();
+    res.send(user);
+  });
 module.exports = router;
