@@ -95,3 +95,11 @@ Host: frozen-shore-39944.herokuapp.com
 Content-Type: application/json
 Cache-Control: no-cache
 Postman-Token: 65c46625-48fb-12f6-a359-cf4aa9b055eb
+
+5: Delete task
+
+DELETE /irshad/task/5d14ae13b395930017f6eb04 HTTP/1.1
+Host: localhost:5000
+Content-Type: application/json
+Cache-Control: no-cache
+Postman-Token: 74af6be6-3829-ba6c-629e-6031061a0805
