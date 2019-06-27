@@ -171,4 +171,21 @@ router.get("/:postId/comment", async (req, res) => {
     const task = await Task.findOne({ _id: req.params.taskId });
     res.send(task);
   });
+  router.delete("/task/:taskId", async (req, res) => {
+    const task = await Task.findOne({ _id: req.params.taskId });
+    if(task){
+      const deleteData = await Task.deleteOne({ _id: req.params.taskId });
+      let result={
+        error:"Task deleted successfully"
+      }
+      res.send(result);
+    }
+    else{
+      let result={
+        error:"Task is not in db"
+      }
+      res.send(result);
+    }
+   
+  });
 module.exports = router;
