@@ -38,7 +38,7 @@ Host: frozen-shore-39944.herokuapp.com
 Cache-Control: no-cache
 Postman-Token: b40fcc10-c9d3-527e-7d54-7634302181c4
 
-4: User by taskId
+4: User by userId
 
 GET /irshad/user/5d13b89918dce705ab724f76 HTTP/1.1
 Host: frozen-shore-39944.herokuapp.com
