@@ -1,0 +1,91 @@
+=========== User Api ========
+1: User Creation
+
+POST /irshad/user HTTP/1.1
+Host: frozen-shore-39944.herokuapp.com
+Content-Type: application/json
+Cache-Control: no-cache
+Postman-Token: fb5e0682-e5c0-c721-7bba-b2f2d1a1e0c6
+
+{
+     "name":"irshad",
+    "mobileNumber":8880590782,
+    "email":"naushad@fff.com",
+    "adhaar":"1234567892"
+}
+
+
+2: User Update
+
+PUT /irshad/user/5d13b9714b7d8f05cc65cb62 HTTP/1.1
+Host: frozen-shore-39944.herokuapp.com
+Content-Type: application/json
+Cache-Control: no-cache
+Postman-Token: d56f86d1-7381-f86a-cc03-889bd3fe80cd
+
+{
+     "name":"vali",
+    "mobileNumber":11123232323,
+    "email":"valiq@fff.com",
+    "adhaar":"1234567854"
+}
+
+
+3: All users
+
+GET /irshad/users HTTP/1.1
+Host: frozen-shore-39944.herokuapp.com
+Cache-Control: no-cache
+Postman-Token: b40fcc10-c9d3-527e-7d54-7634302181c4
+
+
+
+
+============= Task API ==========
+1: Task Creation
+
+POST /irshad/task HTTP/1.1
+Host: frozen-shore-39944.herokuapp.com
+Content-Type: application/json
+Cache-Control: no-cache
+Postman-Token: 5705e984-de39-995a-8819-13ce40ddba5b
+
+{
+    "name":"Task One",
+    "description":"This task for testing",
+    "location": "Bangalore",
+    "userId": "5d13b89918dce705ab724f76"
+}
+
+
+2: Task Update
+
+PUT /irshad/task/5d1436e827b5550319ba3087 HTTP/1.1
+Host: frozen-shore-39944.herokuapp.com
+Content-Type: application/json
+Cache-Control: no-cache
+Postman-Token: 0040e374-02fd-318d-651b-ce930758ded2
+
+{
+    "name":"Task two",
+    "description":"This task for testing. Now testing is going on",
+    "location": "Bangalore",
+    "userId": "5d13b89918dce705ab724f76"
+}
+
+3: All tasks
+
+GET /irshad/tasks HTTP/1.1
+Host: frozen-shore-39944.herokuapp.com
+Content-Type: application/json
+Cache-Control: no-cache
+Postman-Token: 9ede0ffd-a98a-f932-3e83-e6c814eaa3b0
+
+4: Task by taskId
+
+
+GET /irshad/task/5d1436e827b5550319ba3087 HTTP/1.1
+Host: frozen-shore-39944.herokuapp.com
+Content-Type: application/json
+Cache-Control: no-cache
+Postman-Token: 65c46625-48fb-12f6-a359-cf4aa9b055eb

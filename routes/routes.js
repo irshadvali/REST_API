@@ -127,6 +127,11 @@ router.get("/:postId/comment", async (req, res) => {
     res.send(users);
   });
 
+  router.get("/user/:userId", async (req, res) => {
+    const user = await Users.findOne({ _id: req.params.userId });
+    res.send(user);
+  });
+
   router.post("/task", async (req, res) => {
     const task = new Task();
     task.name = req.body.name;
