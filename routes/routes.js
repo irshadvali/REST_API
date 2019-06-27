@@ -5,6 +5,7 @@ const Post = mongoose.model("Post");
 const Comment = mongoose.model("Comment");
 const Book=mongoose.model("Book");
 const Users=mongoose.model("Users")
+const Task=mongoose.model("Task")
 
 router.get("/posts", async (req, res) => {
   const posts = await Post.find({});
@@ -108,5 +109,50 @@ router.get("/:postId/comment", async (req, res) => {
     user.adhaar = req.body.adhaar;
     await user.save();
     res.send(user);
+  });
+
+  router.put("/user/:userId", async (req, res) => {
+    const user = await Users.findOneAndUpdate(
+      {
+        _id: req.params.userId
+      },
+      req.body,
+      { new: true, runValidators: true }
+    ); 
+    res.send(user);
+  });
+
+  router.get("/users", async (req, res) => {
+    const users = await Users.find({})
+    res.send(users);
+  });
+
+  router.post("/task", async (req, res) => {
+    const task = new Task();
+    task.name = req.body.name;
+    task.description = req.body.description;
+    task.location = req.body.location;
+    task.userId = req.body.userId;
+    await task.save();
+    res.send(task);
+  });
+  router.get("/tasks", async (req, res) => {
+    const tasks = await Task.find({})
+    res.send(tasks);
+  });
+
+  router.put("/task/:taskId", async (req, res) => {
+    const task = await Task.findOneAndUpdate(
+      {
+        _id: req.params.taskId
+      },
+      req.body,
+      { new: true, runValidators: true }
+    ); 
+    res.send(task);
+  });
+  router.get("/task/:taskId", async (req, res) => {
+    const task = await Task.findOne({ _id: req.params.taskId });
+    res.send(task);
   });
 module.exports = router;

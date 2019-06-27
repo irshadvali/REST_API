@@ -14,6 +14,7 @@ require("./model/Post")
 require("./model/Comment")
 require("./model/book")
 require("./model/Users")
+require("./model/Task")
 app.use(bodyParser.json())
 .use(morgan())
 //app.use((req,res,next)=>{
