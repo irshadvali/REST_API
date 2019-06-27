@@ -102,13 +102,24 @@ router.get("/:postId/comment", async (req, res) => {
   });
 
   router.post("/user", async (req, res) => {
-    const user = new Users();
-    user.name = req.body.name;
-    user.mobileNumber = req.body.mobileNumber;
-    user.email = req.body.email;
-    user.adhaar = req.body.adhaar;
-    await user.save();
-    res.send(user);
+    const userDetails = await Users.findOne({ mobileNumber: req.body.mobileNumber });
+    if(!userDetails){
+      const user = new Users();
+      user.name = req.body.name;
+      user.mobileNumber = req.body.mobileNumber;
+      user.email = req.body.email;
+      user.adhaar = req.body.adhaar;
+      await user.save();
+      res.send(user);
+    }
+    else{
+      console.log("i am here")
+      let result={
+        error:"This user already registered."
+      }
+      res.send(result);
+    }
+
   });
 
   router.put("/user/:userId", async (req, res) => {
