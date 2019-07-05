@@ -5,32 +5,32 @@ var _ = require("lodash");
 const PeopleData = {
   1: {
     name: "Prakash Sanker",
-    profileImage: "https://alluring-rocky-mountain-18576.herokuapp.com/public/Profile_1.png",
+    profileImage: "https://frozen-shore-39944.herokuapp.com/public/Profile_1.png",
     collaboratedWith: [2, 3]
   },
   2: {
     name: "Aakarsh Yadav",
-    profileImage: "https://alluring-rocky-mountain-18576.herokuapp.com/public/Profile_2.png",
+    profileImage: "https://frozen-shore-39944.herokuapp.com/public/Profile_2.png",
     collaboratedWith: [3, 4, 5, 6]
   },
   3: {
     name: "Meghna Sharma",
-    profileImage: "https://alluring-rocky-mountain-18576.herokuapp.com/public/Profile_3.png",
+    profileImage: "https://frozen-shore-39944.herokuapp.com/public/Profile_3.png",
     collaboratedWith: [1, 2, 4]
   },
   4: {
     name: "Shitanshu Roy",
-    profileImage: "https://alluring-rocky-mountain-18576.herokuapp.com/public/Profile_4.png",
+    profileImage: "https://frozen-shore-39944.herokuapp.com/public/Profile_4.png",
     collaboratedWith: [6]
   },
   5: {
     name: "Ankur Gala",
-    profileImage: "https://alluring-rocky-mountain-18576.herokuapp.com/public/Profile_5.png",
+    profileImage: "https://frozen-shore-39944.herokuapp.com/public/Profile_5.png",
     collaboratedWith: []
   },
   6: {
     name: "Vinay Kumar",
-    profileImage: "https://alluring-rocky-mountain-18576.herokuapp.com/public/Profile_3.png",
+    profileImage: "https://frozen-shore-39944.herokuapp.com/public/Profile_3.png",
     collaboratedWith: [1]
   }
 };
@@ -91,11 +91,11 @@ const TYPE_2 = "TYPE_2";
 const TYPE_3 = "TYPE_3";
 
 const imageUrls = [
-  "https://alluring-rocky-mountain-18576.herokuapp.com/public/img1.jpg",
-  "https://alluring-rocky-mountain-18576.herokuapp.com/public/img2.jpg",
-  "https://alluring-rocky-mountain-18576.herokuapp.com/public/img3.jpg",
-  "https://alluring-rocky-mountain-18576.herokuapp.com/public/img4.jpg",
-  "https://alluring-rocky-mountain-18576.herokuapp.com/public/img5.jpg"
+  "https://frozen-shore-39944.herokuapp.com/public/img1.jpg",
+  "https://frozen-shore-39944.herokuapp.com/public/img2.jpg",
+  "https://frozen-shore-39944.herokuapp.com/public/img3.jpg",
+  "https://frozen-shore-39944.herokuapp.com/public/img4.jpg",
+  "https://frozen-shore-39944.herokuapp.com/public/img5.jpg"
 ];
 
 const card1TextValues = [
