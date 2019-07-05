@@ -7,6 +7,8 @@ const Book=mongoose.model("Book");
 const Users=mongoose.model("Users")
 const Task=mongoose.model("Task")
 
+var {list,get} = require("../interview/Interview")
+
 router.get("/posts", async (req, res) => {
   const posts = await Post.find({});
   res.send(posts);
@@ -188,4 +190,7 @@ router.get("/:postId/comment", async (req, res) => {
     }
    
   });
+
+  router.get("/feeds",list);
+  router.get("/feeds/:id",get);
 module.exports = router;
